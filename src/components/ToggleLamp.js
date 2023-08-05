@@ -7,6 +7,23 @@ import { FaLightbulb, FaRegLightbulb } from 'react-icons/fa';
  * dengan memanfaatkan useState().
  */
 
+const ToggleLampFunc = () => {
+  const [lamp, setLamp] = React.useState('off')
+
+  const toggleLamp = () => {
+    setLamp((prevLamp) => {
+      return prevLamp === 'off' ? 'on' : 'off'
+    })
+  }
+
+  return (
+    <div className={lamp}>
+      <button onClick={toggleLamp}>{lamp === 'on' ? <FaLightbulb /> : <FaRegLightbulb />}</button>
+      <h3>Hooks keren!</h3>
+    </div>
+  )
+}
+
 class ToggleLamp extends React.Component {
   constructor(props) {
     super(props);
@@ -36,4 +53,5 @@ class ToggleLamp extends React.Component {
   }
 }
 
-export default ToggleLamp;
+// export default ToggleLamp;
+export default ToggleLampFunc;
